@@ -1,5 +1,6 @@
 body{
     font-family: "Inter", serif;
+    background-color: #643b9f;
   }
 header{
     display: flex;
@@ -9,6 +10,11 @@ header{
 .head-title{
     text-align: center;
     flex-grow: 1;
+    flex-shrink: 4;
+}
+.menu{
+    display: flex;
+    justify-content: flex-end;
 }
 
 
