@@ -7,9 +7,8 @@ header{
     justify-content: center;
 }
 .head-title{
-    padding-left: 50%;
-    padding-right: 40%;
     text-align: center;
+    flex-grow: 1;
 }
 
 
