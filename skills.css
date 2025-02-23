@@ -1,0 +1,57 @@
+body{
+    font-family: "Inter", serif;
+}
+
+
+/* ========================= */
+/*      FONT DEFINITIONS     */
+/* ========================= */
+.sue-ellen-francisco-regular {
+    font-family: "Sue Ellen Francisco", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .inter-apple {
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ibm-plex-mono-regular {
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ibm-plex-mono-semibold {
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .ibm-plex-mono-bold {
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .work-sans-apl {
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .sigmar-regular {
+    font-family: "Sigmar", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+  /* ========================= */
+  /*     UNUSED CHECKPOINT     */
+  /* ========================= */
+  /* .checkpoint {} */

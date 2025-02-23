@@ -1,15 +1,49 @@
+/* ========================= */
+/*         ANIMATIONS        */
+/* ========================= */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes underline { from { transform: scaleX(0); } to { transform: scaleX(0.3); } }
+
+/* ========================= */
+/*       GLOBAL STYLES       */
+/* ========================= */
 body {
   font-family: "Inter", sans-serif;
-  background-color: #b790ee;
+  background-color: #7753cb;
+  margin-left: 4.5%;
+  height: 100vh;
+  background: linear-gradient(45deg, #6a0dad, #b266ff, #8a2be2);
+  background-size: 300% 300%; /* Expands the background for a rolling effect */
+  animation: gradientShift 40s infinite ease-in-out;
 }
 
+/* ========================= */
+/*          HEADER           */
+/* ========================= */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(90deg, rgba(122, 31, 162, 0.9), rgba(74, 20, 140, 0.9), rgba(58, 12, 120, 0.9));
+  color: rgb(209, 208, 240);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 100; /* Keeps it on top */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4); /* Softer shadow */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Subtle separator */
+  backdrop-filter: blur(5px); /* Adds a glass-like effect */
 }
 
+/* Header Title */
 #head-title {
   flex: 1;
   text-align: center;
@@ -17,121 +51,129 @@ header {
   flex-shrink: 5;
 }
 
-header button {
-  margin-left: auto;
+/* Menu Button */
+#menu {
+  width: 30px;
+  height: 30px;
+  margin-right: 5%;
+  background: url('./icons/menu.svg') no-repeat center center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  display: block;
 }
 
+iframe{
+ border-radius: 20px;
+width: 89%;
+height: auto;
+background-color: #7c3eb8;
+border: 4px solid rgb(29, 11, 47);
+
+}
+
+/* ========================= */
+/*         TYPOGRAPHY        */
+/* ========================= */
+.intro {
+  padding-left: 0.8%;
+  font-family: "Work Sans";
+  font-size: large;
+  font-style: bold;
+  margin-bottom: -19px;
+  margin-top: -13px;
+}
+
+.intro::after {
+  content: ""; 
+  display: block; 
+  width: 100%; 
+  height: 4px; 
+  background: #010102; 
+  transform: scaleX(0); 
+  animation: underline 1s ease-in-out 2.3s forwards;
+  transform-origin: left;
+}
+
+/* Large Name Text */
+#name {
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(to right, #6e63ce, #9451ce);
+  -webkit-background-clip: text;
+  font-family: "Inter", sans-serif;
+}
+
+/* Welcome Text with Gradient Effect */
 #welcome {
-  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  margin-top: 10%;
+  margin-left: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  background: linear-gradient(to right, #6a0dad, #5b2a8c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+#profession{
+  color: indigo;
+  font-family: "Sigmar", serif;
+
+}
+
+/* ========================= */
+/*      FONT DEFINITIONS     */
+/* ========================= */
+.sue-ellen-francisco-regular {
+  font-family: "Sue Ellen Francisco", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-apple {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-mono-regular {
+  font-family: "IBM Plex Mono", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-mono-semibold {
+  font-family: "IBM Plex Mono", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.ibm-plex-mono-bold {
+  font-family: "IBM Plex Mono", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.work-sans-apl {
+  font-family: "Work Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sigmar-regular {
+  font-family: "Sigmar", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-.sue-ellen-francisco-regular {
-    font-family: "Sue Ellen Francisco", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .inter-apple {
-    font-family: "Inter", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
-  .ibm-plex-mono-thin {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 100;
-    font-style: normal;
-  }
-  
-  .ibm-plex-mono-extralight {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 200;
-    font-style: normal;
-  }
-  
-  .ibm-plex-mono-light {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .ibm-plex-mono-regular {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .ibm-plex-mono-medium {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .ibm-plex-mono-semibold {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  .ibm-plex-mono-bold {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  .ibm-plex-mono-thin-italic {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 100;
-    font-style: italic;
-  }
-  
-  .ibm-plex-mono-extralight-italic {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 200;
-    font-style: italic;
-  }
-  
-  .ibm-plex-mono-light-italic {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 300;
-    font-style: italic;
-  }
-  
-  .ibm-plex-mono-regular-italic {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .ibm-plex-mono-medium-italic {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 500;
-    font-style: italic;
-  }
-  
-  .ibm-plex-mono-semibold-italic {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 600;
-    font-style: italic;
-  }
-  
-  .ibm-plex-mono-bold-italic {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 700;
-    font-style: italic;
-  }
-
-   /*"IBM Plex Mono", serif;*/
-    /*"Sue Ellen Francisco", serif;*/
+/* ========================= */
+/*     UNUSED CHECKPOINT     */
+/* ========================= */
+/* .checkpoint {} */
