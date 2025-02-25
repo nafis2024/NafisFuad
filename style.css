@@ -16,6 +16,7 @@ body {
   font-family: "Inter", sans-serif;
   background-color: #7753cb;
   margin-left: 4.5%;
+  margin-right: 4%;
   height: 100vh;
   background: linear-gradient(45deg, #6a0dad, #b266ff, #8a2be2);
   background-size: 300% 300%; /* Expands the background for a rolling effect */
@@ -64,9 +65,11 @@ header {
 }
 
 iframe{
- border-radius: 20px;
-width: 89%;
-height: auto;
+font-family: "Inter", serif;
+border-radius: 20px;
+width: 100%;
+height: 35%;
+margin-top: 3%;
 background-color: #7c3eb8;
 border: 4px solid rgb(29, 11, 47);
 
