@@ -370,3 +370,80 @@ body {
     background: #e6f7e6;
     color: #28572d;
 }
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1e1e1e 0%, #2c2c2c 100%);
+        color: #e0e0e0;
+    }
+
+    .card {
+        background: #2b2b2b;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-title {
+        color: #ffffff;
+    }
+
+    .card-content {
+        color: #cccccc;
+    }
+
+    .dashed-rule {
+        border-top: 2.7px dashed #555;
+    }
+
+    .tech-pill {
+        background: #3a3a3a;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .tech-name {
+        background: #4a4a4a;
+        color: #f1f1f1;
+        border-right: 1px solid #666;
+    }
+
+    .tech-level {
+        background: #333;
+        color: #aaa;
+    }
+
+    .social-pill {
+        background: #3a3a3a;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+        border: 1px solid #555;
+    }
+
+    .social-username {
+        color: #ddd;
+    }
+
+    .skill-pill {
+        background: #3a3a3a;
+        color: #f0f0f0;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .skill-pill.webdev {
+        background: #3c4e61;
+        color: #d6e6f7;
+    }
+
+    .skill-pill.project {
+        background: #4e3c61;
+        color: #e6d8f7;
+    }
+
+    .skill-pill.volunteer {
+        background: #61503c;
+        color: #f7e6d8;
+    }
+
+    .skill-pill.debating {
+        background: #3c6140;
+        color: #e6f7e6;
+    }
+}
