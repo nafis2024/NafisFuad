@@ -1,472 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nafis fuad · profile</title>
-    <!-- a minimal, professional palette: off-white, deep navy, subtle grey -->
-    <style>
-        /* reset & system fonts — clean, no distractions */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nafis Fuad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Epilogue:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#f5f0e8;
+  --cream2:#ede8df;
+  --warm-dark:#1c1814;
+  --warm-mid:#3d3530;
+  --warm-text:#2a2420;
+  --muted:#8c7f74;
+  --accent:#5c3d2e;
+  --accent-light:#c4a882;
+  --border:#d4ccc0;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Epilogue',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--cream);
+  color:var(--warm-text);
+  font-family:var(--sans);
+  font-size:14px;
+  line-height:1.6;
+}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--accent-light);color:var(--warm-dark);}
 
-        body {
-            background-color: #f6f8fa;   /* calm background */
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #1a2b3e;
-            line-height: 1.5;
-            padding: 3rem 1.5rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+/* ── NAV ── */
+nav{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:1.25rem 2.5rem;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100;
+  background:rgba(245,240,232,0.92);
+  backdrop-filter:blur(8px);
+}
+.nav-logo{
+  font-family:var(--serif);
+  font-size:1.1rem;
+  letter-spacing:0.02em;
+  font-weight:700;
+}
+.nav-center{
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.nav-right{
+  display:flex;gap:2rem;justify-content:flex-end;
+  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+}
+.nav-right a{color:var(--muted);transition:color 0.18s;}
+.nav-right a:hover{color:var(--warm-dark);}
 
-        .container {
-            max-width: 1280px;
-            width: 100%;
-            margin: 0 auto;
-        }
+/* ── HEADER BLOCK ── */
+.header-block{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--border);
+  min-height:62vh;
+}
+.header-left{
+  padding:3.5rem 2.5rem;
+  display:flex;flex-direction:column;justify-content:space-between;
+  border-right:1px solid var(--border);
+}
+.header-name{
+  font-family:var(--serif);
+  font-size:clamp(3rem,5.5vw,5.5rem);
+  line-height:1.0;
+  font-weight:700;
+  letter-spacing:-0.02em;
+}
+.header-name em{
+  font-style:italic;
+  color:var(--accent);
+}
+.header-sub{
+  font-size:11px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-top:1.2rem;
+}
+.header-tagline{
+  font-size:1rem;
+  line-height:1.75;
+  color:var(--warm-mid);
+  max-width:380px;
+  margin-top:auto;
+  padding-top:2rem;
+}
+.header-tagline strong{
+  font-weight:600;
+  color:var(--warm-dark);
+}
+.header-right{
+  position:relative;
+  overflow:hidden;
+  background:var(--cream2);
+}
+.photo-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:1rem;
+  color:var(--muted);
+}
+.photo-placeholder .ph-frame{
+  width:120px;height:150px;
+  border:1.5px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--accent-light);
+}
+.photo-placeholder p{
+  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);
+}
+.header-location{
+  position:absolute;bottom:1.5rem;right:1.5rem;
+  font-size:10px;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--muted);
+}
 
-        /* main grid — asymmetrical, purposeful */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1.8rem;
-        }
+/* ── INFO STRIP ── */
+.info-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--border);
+}
+.info-cell{
+  padding:1.25rem 1.5rem;
+  border-right:1px solid var(--border);
+}
+.info-cell:last-child{border-right:none;}
+.info-cell-label{
+  font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:0.5rem;
+}
+.info-cell-value{font-size:13px;font-weight:500;line-height:1.4;}
 
-        /* every block is a white card with subtle border */
-        .card {
-            background: #ffffff;
-            border: 1px solid #e9edf2;
-            border-radius: 20px;
-            padding: 1.8rem 1.8rem 2rem 1.8rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.01);
-            transition: border-color 0.15s ease;
-        }
+/* ── MAIN GRID ── */
+.main-grid{
+  display:grid;
+  grid-template-columns:240px 1fr 1fr;
+  border-bottom:1px solid var(--border);
+}
+.grid-col{border-right:1px solid var(--border);}
+.grid-col:last-child{border-right:none;}
+.col-header{
+  padding:1rem 1.5rem;
+  border-bottom:1px solid var(--border);
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);
+  font-weight:400;
+}
 
-        .card:hover {
-            border-color: #cbd5e1;
-        }
+/* ABOUT COL */
+.about-body{padding:1.5rem;}
+.about-body p{
+  font-size:13.5px;line-height:1.8;
+  color:var(--warm-mid);
+}
+.about-body p+p{margin-top:1rem;}
 
-        /* typography */
-        h2 {
-            font-size: 1.2rem;
-            font-weight: 550;
-            letter-spacing: -0.01em;
-            color: #0e1f2f;
-            margin-bottom: 1.4rem;
-            border-bottom: 2px solid #eaeef3;
-            padding-bottom: 0.5rem;
-            text-transform: uppercase;
-            font-feature-settings: "ss02";
-        }
+/* EXPERIENCE / STACK COLS */
+.exp-row{
+  display:grid;grid-template-columns:90px 1fr;
+  border-bottom:1px solid var(--border);
+  min-height:0;
+}
+.exp-row:last-child{border-bottom:none;}
+.exp-num{
+  padding:1.25rem 1rem;
+  border-right:1px solid var(--border);
+  font-size:10px;letter-spacing:0.1em;color:var(--muted);
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+}
+.exp-content{padding:1.25rem 1.25rem;}
+.exp-role{font-size:13px;font-weight:600;margin-bottom:0.2rem;line-height:1.3;}
+.exp-org{
+  font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:0.4rem;
+}
+.exp-date{font-size:10px;color:var(--muted);margin-bottom:0.5rem;letter-spacing:0.05em;}
+.exp-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+.exp-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem;}
+.tag{
+  font-size:10px;letter-spacing:0.06em;padding:0.2rem 0.55rem;
+  border:1px solid var(--border);color:var(--muted);
+}
 
-        h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #1e3a5f;
-            margin-bottom: 0.25rem;
-        }
+/* STACK COL */
+.stack-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.9rem 1.25rem;
+  border-bottom:1px solid var(--border);
+}
+.stack-row:last-child{border-bottom:none;}
+.stack-name{font-size:13px;font-weight:500;}
+.stack-bar-wrap{display:flex;align-items:center;gap:0.6rem;}
+.bar{
+  display:flex;gap:3px;
+}
+.bar-seg{
+  width:14px;height:3px;
+  background:var(--border);
+}
+.bar-seg.filled{background:var(--accent);}
+.stack-lvl{font-size:10px;letter-spacing:0.06em;color:var(--muted);}
 
-        /* profile specific */
-        .profile-row {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            margin-bottom: 1.2rem;
-        }
+/* ── AWARDS STRIP ── */
+.awards-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--border);
+}
+.award-cell{
+  padding:1.5rem;
+  border-right:1px solid var(--border);
+  transition:background 0.18s;
+}
+.award-cell:last-child{border-right:none;}
+.award-cell:hover{background:var(--cream2);}
+.award-n{
+  font-family:var(--serif);font-style:italic;
+  font-size:2rem;color:var(--border);
+  line-height:1;margin-bottom:0.75rem;
+}
+.award-title{font-size:12.5px;font-weight:500;line-height:1.5;margin-bottom:0.4rem;}
+.award-year{font-size:10px;color:var(--muted);letter-spacing:0.1em;}
 
-        .profile-pic {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #dde5ed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 400;
-            color: #2f4b6e;
-            border: 2px solid white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
+/* ── CONTACT BLOCK ── */
+.contact-block{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--border);
+}
+.contact-left{
+  padding:3rem 2.5rem;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.contact-heading{
+  font-family:var(--serif);
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  line-height:1.15;
+  font-weight:700;
+}
+.contact-heading em{font-style:italic;color:var(--accent);}
+.contact-note{
+  font-size:12.5px;color:var(--muted);
+  line-height:1.7;max-width:340px;
+}
+.contact-right{
+  padding:3rem 2.5rem;
+  display:flex;flex-direction:column;gap:0;
+}
+.contact-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 0;
+  border-bottom:1px solid var(--border);
+  transition:color 0.18s;
+}
+.contact-link:last-child{border-bottom:none;}
+.contact-link:hover{color:var(--accent);}
+.contact-link:hover .cl-arrow{transform:translate(3px,-3px);}
+.cl-platform{font-size:13px;font-weight:600;letter-spacing:0.04em;}
+.cl-handle{font-size:11px;color:var(--muted);margin-top:1px;}
+.cl-arrow{
+  font-size:14px;color:var(--muted);
+  transition:transform 0.18s,color 0.18s;
+  flex-shrink:0;
+}
+.contact-link:hover .cl-arrow{color:var(--accent);}
 
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
+/* ── FOOTER ── */
+footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 2.5rem;
+}
+.footer-copy{font-size:11px;color:var(--muted);letter-spacing:0.08em;}
 
-        .name {
-            font-size: 1.6rem;
-            font-weight: 520;
-            letter-spacing: -0.02em;
-            color: #0f2b40;
-        }
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.reveal.vis{opacity:1;transform:translateY(0);}
 
-        .subhead {
-            font-size: 0.9rem;
-            color: #5b6f84;
-            margin-top: 0.2rem;
-        }
-
-        .divider {
-            height: 2px;
-            background: #eef2f6;
-            width: 100%;
-            margin: 1.5rem 0 1.2rem 0;
-        }
-
-        /* pills / tags — minimal, airy */
-        .skill-tag {
-            display: inline-block;
-            background: #f0f4fa;
-            border-radius: 30px;
-            padding: 0.3rem 1.2rem;
-            font-size: 0.8rem;
-            font-weight: 470;
-            color: #1d3b5c;
-            margin: 0.2rem 0.2rem;
-            border: 1px solid #e2e9f2;
-        }
-
-        .tech-meta {
-            display: inline-flex;
-            align-items: center;
-            background: #ffffff;
-            border: 1px solid #e2e9f2;
-            border-radius: 30px;
-            padding: 0.2rem 0.2rem 0.2rem 0.8rem;
-            margin: 0.25rem 0.35rem 0.25rem 0;
-            font-size: 0.8rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-        }
-
-        .tech-name {
-            background: #eef3f9;
-            border-radius: 30px;
-            padding: 0.3rem 1rem;
-            font-weight: 520;
-            color: #142a40;
-            margin-right: 0.6rem;
-        }
-
-        .tech-level {
-            padding-right: 1rem;
-            color: #516f88;
-            font-size: 0.75rem;
-            font-weight: 450;
-            text-transform: lowercase;
-        }
-
-        /* contact row minimal */
-        .contact-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.6rem 1.2rem;
-            margin: 1rem 0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #1f3f60;
-            text-decoration: none;
-            background: #f3f7fc;
-            padding: 0.3rem 1rem 0.3rem 0.8rem;
-            border-radius: 40px;
-            border: 1px solid #e2eaf3;
-            transition: 0.1s;
-        }
-
-        .contact-item:hover {
-            background: #eaf0f8;
-            border-color: #b9cfec;
-        }
-
-        .contact-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #dce6f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            color: #1f3f60;
-        }
-
-        /* experience list */
-        .exp-block {
-            margin-bottom: 1.6rem;
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 0.2rem;
-        }
-
-        .exp-title {
-            font-weight: 620;
-            color: #153454;
-        }
-
-        .exp-date {
-            font-size: 0.75rem;
-            color: #6e8aa8;
-            letter-spacing: 0.02em;
-        }
-
-        .exp-sub {
-            font-size: 0.9rem;
-            color: #2b4b6e;
-            margin-bottom: 0.25rem;
-        }
-
-        .exp-desc {
-            font-size: 0.88rem;
-            color: #3d5775;
-            margin-left: 0rem;
-            padding-left: 0.7rem;
-            border-left: 2px solid #dbe4ed;
-        }
-
-        .stat-badge {
-            background: #ecf3fa;
-            border-radius: 30px;
-            padding: 0.2rem 0.9rem;
-            font-size: 0.7rem;
-            color: #1f4970;
-            display: inline-block;
-            margin: 0.2rem 0.15rem;
-            border: 1px solid #d2e0ed;
-            white-space: nowrap;
-        }
-
-        .honor-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-            margin: 1rem 0;
-        }
-
-        /* Sandbox story — minimal but textured */
-        .story-note {
-            background-color: #f5f9ff;
-            border-radius: 18px;
-            padding: 1.2rem 1.3rem;
-            margin: 1rem 0 0.5rem 0;
-            font-size: 0.9rem;
-            border: 1px solid #dee9f2;
-            color: #1f3f5c;
-        }
-
-        /* layout spans — hand picked */
-        .span-3 { grid-column: span 3; }
-        .span-4 { grid-column: span 4; }
-        .span-5 { grid-column: span 5; }
-        .span-6 { grid-column: span 6; }
-        .span-7 { grid-column: span 7; }
-        .span-8 { grid-column: span 8; }
-        .span-9 { grid-column: span 9; }
-        .span-12 { grid-column: span 12; }
-
-        @media (max-width: 900px) {
-            .grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9, .span-12 { grid-column: 1; }
-        }
-    </style>
+@media(max-width:720px){
+  nav{grid-template-columns:1fr 1fr;}.nav-center{display:none;}
+  .header-block,.main-grid,.contact-block{grid-template-columns:1fr;}
+  .header-right{min-height:260px;}
+  .header-left{border-right:none;border-bottom:1px solid var(--border);}
+  .info-strip,.awards-strip{grid-template-columns:1fr 1fr;}
+  .info-cell:nth-child(2){border-right:none;}
+  .info-cell:nth-child(3){border-top:1px solid var(--border);}
+  .grid-col{border-right:none;border-bottom:1px solid var(--border);}
+  .main-grid{grid-template-columns:1fr;}
+  .contact-left{border-right:none;border-bottom:1px solid var(--border);}
+  .awards-strip{grid-template-columns:1fr 1fr;}
+  .award-cell:nth-child(2){border-right:none;}
+  .award-cell:nth-child(3){border-top:1px solid var(--border);}
+  .award-cell:nth-child(4){border-top:1px solid var(--border);border-right:none;}
+}
+</style>
 </head>
 <body>
-<div class="container">
-    <!-- grid layout — asymmetrical, fresh, professional -->
-    <div class="grid">
-        <!-- row 1: profile card + short intro (wide) -->
-        <div class="card span-5">
-            <div class="profile-row">
-                <div class="profile-pic">
-                    <!-- fallback if image missing — just initials -->
-                    <img src="./profile_picture(1).png" alt="" onerror="this.style.display='none'; this.parentElement.innerText='NF'" style="display: none;">
-                    <span style="opacity:0.5;">NF</span>
-                </div>
-                <div>
-                    <div class="name">Mohammad Nafis Fuad</div>
-                    <div class="subhead">Motijheel, Dhaka · 12th grade · math & tech</div>
-                </div>
-            </div>
-            <div style="margin-top: 1rem; font-size:0.95rem; color:#244b6e;">
-                I look forward to creating practical solutions and landing in insightful opportunities.
-            </div>
-            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.3rem;">
-                <span class="skill-tag">Bengali (native)</span>
-                <span class="skill-tag">English (full professional)</span>
-                <span class="skill-tag">Peer Reviews</span>
-                <span class="skill-tag">Mathematics</span>
-                <span class="skill-tag">Google Slides</span>
-            </div>
-        </div>
 
-        <!-- contact + quick links (compact) -->
-        <div class="card span-4">
-            <h2>connect</h2>
-            <div class="contact-row">
-                <a href="https://linkedin.com/in/nafis2024" class="contact-item" target="_blank">🔗 linkedin/nafis2024</a>
-                <a href="https://github.com/nafis2024" class="contact-item" target="_blank">🐙 github/nafis2024</a>
-                <a href="mailto:nafisfuad2024@gmail.com" class="contact-item" target="_blank">✉️ nafisfuad2024</a>
-                <a href="https://wa.me/+8801967517101" class="contact-item" target="_blank">📱 +8801967517101</a>
-                <a href="https://facebook.com/mn.fuad26" class="contact-item" target="_blank">📘 mn.fuad26</a>
-            </div>
-            <div style="margin-top: 1rem; font-size:0.85rem; color:#456f94;">
-                portfolio: nafis2024.github.io/NafisFuad/
-            </div>
-        </div>
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Nafis Fuad</span>
+  <span class="nav-center">Portfolio · 2025</span>
+  <div class="nav-right">
+    <a href="#work">Work</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-        <!-- awards / honors (small but proud) -->
-        <div class="card span-3">
-            <h2>honors</h2>
-            <div style="font-size:0.9rem; line-height:1.5;">
-                <div style="margin-bottom:0.5rem;">⭐ 4th · Physics Olympiad (regional)</div>
-                <div style="margin-bottom:0.5rem;">🏆 Math Olympiad winner 2025</div>
-                <div style="margin-bottom:0.5rem;">🏆 Math Olympiad winner 2024</div>
-                <div style="margin-bottom:0.5rem;">🌌 NASA Space Apps 2025 · Galactic Problem Solver</div>
-            </div>
-        </div>
-
-        <!-- TECH STACK CARD (spans 4) -->
-        <div class="card span-4">
-            <h2>tech stack</h2>
-            <div>
-                <span class="tech-meta"><span class="tech-name">JavaScript</span><span class="tech-level">advanced</span></span>
-                <span class="tech-meta"><span class="tech-name">HTML</span><span class="tech-level">intermediate</span></span>
-                <span class="tech-meta"><span class="tech-name">CSS</span><span class="tech-level">intermediate</span></span>
-                <span class="tech-meta"><span class="tech-name">React</span><span class="tech-level">intermediate</span></span>
-                <span class="tech-meta"><span class="tech-name">TypeScript</span><span class="tech-level">beginner</span></span>
-                <span class="tech-meta"><span class="tech-name">Tailwind</span><span class="tech-level">beginner</span></span>
-                <span class="tech-meta"><span class="tech-name">SQL</span><span class="tech-level">beginner</span></span>
-                <span class="tech-meta"><span class="tech-name">C++</span><span class="tech-level">beginner</span></span>
-            </div>
-            <div style="margin-top:1.2rem;">
-                <h2 style="margin-bottom:0.8rem;">skill set</h2>
-                <span class="skill-tag">Web dev</span>
-                <span class="skill-tag">Project management</span>
-                <span class="skill-tag">Leadership</span>
-                <span class="skill-tag">Volunteering</span>
-                <span class="skill-tag">Debating</span>
-                <span class="skill-tag">English fluency</span>
-                <span class="skill-tag">Photography</span>
-                <span class="skill-tag">Peer review</span>
-            </div>
-        </div>
-
-        <!-- SANDOX + TUTORING HIGHLIGHT (span 5) -->
-        <div class="card span-5">
-            <h2>notable experience</h2>
-            <div class="exp-block">
-                <div class="exp-header">
-                    <span class="exp-title">Founder – Sandbox Scholars</span>
-                    <span class="exp-date">Jul 2025 – present</span>
-                </div>
-                <div class="story-note">
-                    A group of teenagers building a nonprofit to help students learn & build. 
-                    I learned design, communication, adaptability, reasoning. “The experience is invaluable.”
-                    <div style="margin-top:0.5rem; font-size:0.85rem;">→ built projects, design, communication, research exposure.</div>
-                </div>
-            </div>
-
-            <div class="exp-block">
-                <div class="exp-header">
-                    <span class="exp-title">Math Tutor @ Schoolhouse.world</span>
-                    <span class="exp-date">Dec 2025 – present</span>
-                </div>
-                <div class="exp-sub">Algebra I, II, Pre-Algebra · Khan Academy syllabus</div>
-                <div style="margin:0.5rem 0;">
-                    <span class="stat-badge">🏅 30+ tutoring hours (top20%)</span>
-                    <span class="stat-badge">🏅 35+ sessions (top10%)</span>
-                    <span class="stat-badge">🌍 10+ countries (top10%)</span>
-                    <span class="stat-badge">30+ learners impacted</span>
-                </div>
-                <div style="font-size:0.85rem; color:#376a9a;">+ peer reviews & certification reviews</div>
-            </div>
-        </div>
-
-        <!-- NDITC + Eco/Space (span 3) -->
-        <div class="card span-3">
-            <h2>clubs & org</h2>
-            <div style="margin-bottom:1rem;">
-                <div style="font-weight:600;">NDITC</div>
-                <div style="font-size:0.85rem; color:#4d6e8f;">Organizer (May 2025–present)</div>
-                <div style="font-size:0.8rem;">General member Sep’24–May’25 · contributed to INIT 5.0 website</div>
-            </div>
-            <div>
-                <div style="font-weight:600;">Eco & Space Club</div>
-                <div style="font-size:0.85rem; color:#4d6e8f;">General member Aug–Dec 2024</div>
-                <div style="font-size:0.8rem;">stargazing, telescope seminars</div>
-            </div>
-        </div>
-
-        <!-- EDUCATION & LOCATION (span 3) -->
-        <div class="card span-3">
-            <h2>education</h2>
-            <div style="margin-bottom:0.7rem;">
-                <div style="font-weight:600;">Notre Dame College</div>
-                <div style="font-size:0.85rem;">HSC, Science · 2024–2026</div>
-            </div>
-            <div style="margin-bottom:0.7rem;">
-                <div style="font-weight:600;">Milestone College</div>
-                <div style="font-size:0.85rem;">SSC, Science · 2021–2024</div>
-            </div>
-            <div>
-                <div style="font-weight:600;">Gov. Muslim High School</div>
-                <div style="font-size:0.85rem;">Primary · 2018–2021</div>
-            </div>
-            <div class="divider" style="margin:1rem 0;"></div>
-            <div style="font-size:0.9rem; color:#1c4468;">📍 Motijheel, Dhaka, Bangladesh</div>
-        </div>
-
-        <!-- more about sandbox / personal note (span 4) -->
-        <div class="card span-4">
-            <h2>design & research notes</h2>
-            <div style="font-size:0.9rem; background:#f7faff; border-radius:16px; padding:1.2rem;">
-                🎯 I never designed as a professional. I just like designing. Practice made me proficient.<br><br>
-                🎯 Always wanted to contribute to research projects. Learning research factors & terms.<br><br>
-                🎯 Project management in a non‑profit from scratch improved communication, adaptability, reasoning.
-            </div>
-        </div>
-
-        <!-- quick extra: top skills / languages from PDF (span 2, subtle) -->
-        <div class="card span-2" style="justify-content: center;">
-            <h2>languages</h2>
-            <div style="margin-bottom:0.7rem;">🇧🇩 Bengali · native</div>
-            <div>🇬🇧 English · full professional</div>
-            <div style="margin-top:1.2rem;"><span class="skill-tag">Top 10% schoolhouse</span></div>
-        </div>
-
-        <!-- FINAL CARD: more contact / NASA / portfolio (span 3) -->
-        <div class="card span-3">
-            <h2>featured</h2>
-            <div style="margin-bottom:0.5rem;">✨ Galactic Problem Solver · NASA Space Apps 2025</div>
-            <div style="margin-bottom:1rem;">✨ Peer review volunteer @ schoolhouse</div>
-            <div style="font-size:0.9rem;">📁 nafis2024.github.io/NafisFuad/</div>
-            <div style="margin-top:1rem;">+8801967517101 · nafisfuad2024@gmail.com</div>
-        </div>
+<!-- HEADER -->
+<div class="header-block reveal">
+  <div class="header-left">
+    <div>
+      <h1 class="header-name">Mohammad<br/><em>Nafis Fuad</em></h1>
+      <p class="header-sub">Web Developer &amp; Visual Designer · Dhaka</p>
     </div>
-    <!-- tiny footer line — optional -->
-    <div style="margin-top: 2.5rem; font-size:0.7rem; color:#8fa5bc; text-align:center; border-top:1px solid #e5ecf3; padding-top:1rem;">
-        Mohammad Nafis Fuad · 2026 · minimal & professional
+    <p class="header-tagline">
+      I build things for the web and lead the people who build alongside me.<br/><br/>
+      <strong>Aspiring software engineer</strong> — currently at Notre Dame College, shipping projects before graduation.
+    </p>
+  </div>
+  <div class="header-right">
+    <div class="photo-placeholder">
+      <div class="ph-frame">Your photo</div>
+      <p>Replace with img tag</p>
     </div>
+    <span class="header-location">Dhaka, Bangladesh</span>
+  </div>
 </div>
-<!-- script (kept for compatibility) -->
-<script src="script.js"></script>
+
+<!-- INFO STRIP -->
+<div class="info-strip reveal">
+  <div class="info-cell">
+    <p class="info-cell-label">Currently</p>
+    <p class="info-cell-value">Notre Dame College · HSC Science</p>
+  </div>
+  <div class="info-cell">
+    <p class="info-cell-label">Founded</p>
+    <p class="info-cell-value">Sandbox Scholars · 2025</p>
+  </div>
+  <div class="info-cell">
+    <p class="info-cell-label">Focus</p>
+    <p class="info-cell-value">Web Dev · UI Design · Leadership</p>
+  </div>
+  <div class="info-cell">
+    <p class="info-cell-label">Graduating</p>
+    <p class="info-cell-value">2026 → Software Engineering</p>
+  </div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main-grid" id="work">
+
+  <!-- ABOUT -->
+  <div class="grid-col reveal">
+    <div class="col-header">About</div>
+    <div class="about-body">
+      <p>I'm a 12th-grade student equally at home writing JavaScript and leading a team of twenty. I started coding out of curiosity — it grew into a full obsession with building things that matter.</p>
+      <p>I founded Sandbox Scholars, competed in physics olympiads, volunteered at national tech festivals, and collaborated on the NASA Space Apps Challenge — all while learning front-end development from scratch.</p>
+      <p>Beyond code: photography, debating, research writing. Bangla (native), English (fluent), Hindi (conversational).</p>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="grid-col reveal">
+    <div class="col-header">Experience</div>
+
+    <div class="exp-row">
+      <div class="exp-num">01</div>
+      <div class="exp-content">
+        <p class="exp-role">Founder &amp; Project Manager</p>
+        <p class="exp-org">Sandbox Scholars</p>
+        <p class="exp-date">Jul 2025 – Present</p>
+        <p class="exp-desc">Open-source digital newspaper for high-school audiences. Led 7+ research article projects, trained junior PMs, built web app &amp; task-automation tooling. Team of 20+.</p>
+        <div class="exp-tags">
+          <span class="tag">React</span><span class="tag">UI Design</span><span class="tag">Leadership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-num">02</div>
+      <div class="exp-content">
+        <p class="exp-role">Organiser</p>
+        <p class="exp-org">Notre Dame IT Club · NDITC</p>
+        <p class="exp-date">May 2025 – Jun 2026</p>
+        <p class="exp-desc">INIT5.0 national inter-school tech festival. Contributed to official webpage, crafted plans for NASA Space Apps team, built Python certificate mailing script.</p>
+        <div class="exp-tags">
+          <span class="tag">Python</span><span class="tag">Web Dev</span><span class="tag">Events</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STACK -->
+  <div class="grid-col reveal" id="stack">
+    <div class="col-header">Tech Stack</div>
+    <div class="stack-row">
+      <span class="stack-name">JavaScript</span>
+      <div class="stack-bar-wrap">
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Advanced</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="stack-name">HTML &amp; CSS</span>
+      <div class="stack-bar-wrap">
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Intermediate</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="stack-name">React JS</span>
+      <div class="stack-bar-wrap">
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Intermediate</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="stack-name">TypeScript</span>
+      <div class="stack-bar-wrap">
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Learning</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="stack-name">Tailwind CSS</span>
+      <div class="stack-bar-wrap">
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Learning</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="stack-name">C++ / SQL</span>
+      <div class="stack-bar-wrap">
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Beginner</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="stack-name">Canva / Adobe</span>
+      <div class="stack-bar-wrap">
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Intermediate</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- AWARDS STRIP -->
+<div class="awards-strip reveal">
+  <div class="award-cell">
+    <p class="award-n">01</p>
+    <p class="award-title">4th place — 15th Bangladesh Physics Olympiad (Regional)</p>
+    <p class="award-year">2025</p>
+  </div>
+  <div class="award-cell">
+    <p class="award-n">02</p>
+    <p class="award-title">Galactic Problem Solver · NASA International Space Apps Challenge</p>
+    <p class="award-year">2025</p>
+  </div>
+  <div class="award-cell">
+    <p class="award-n">03</p>
+    <p class="award-title">Runners-up · Intra-school Magazine Design Contest</p>
+    <p class="award-year">Milestone School</p>
+  </div>
+  <div class="award-cell">
+    <p class="award-n">04</p>
+    <p class="award-title">Semi-finalist · Intra-school Debating Competition</p>
+    <p class="award-year">Milestone School</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-block reveal" id="contact">
+  <div class="contact-left">
+    <h2 class="contact-heading">Let's build<br/>something<br/><em>worth building.</em></h2>
+    <p class="contact-note">Open to collaborations, internships, and interesting conversations. Drop me a message on any platform below.</p>
+  </div>
+  <div class="contact-right">
+    <a href="https://linkedin.com/in/nafis2024" target="_blank" class="contact-link">
+      <div><p class="cl-platform">LinkedIn</p><p class="cl-handle">nafis2024</p></div>
+      <span class="cl-arrow">↗</span>
+    </a>
+    <a href="https://github.com/nafis2024" target="_blank" class="contact-link">
+      <div><p class="cl-platform">GitHub</p><p class="cl-handle">nafis2024</p></div>
+      <span class="cl-arrow">↗</span>
+    </a>
+    <a href="mailto:nafisfuad2024@gmail.com" class="contact-link">
+      <div><p class="cl-platform">Email</p><p class="cl-handle">nafisfuad2024@gmail.com</p></div>
+      <span class="cl-arrow">↗</span>
+    </a>
+    <a href="https://facebook.com/mn.fuad26" target="_blank" class="contact-link">
+      <div><p class="cl-platform">Facebook</p><p class="cl-handle">mn.fuad26</p></div>
+      <span class="cl-arrow">↗</span>
+    </a>
+    <a href="https://wa.me/+8801967517101" target="_blank" class="contact-link">
+      <div><p class="cl-platform">WhatsApp</p><p class="cl-handle">+880 1967 517101</p></div>
+      <span class="cl-arrow">↗</span>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2025 Mohammad Nafis Fuad</span>
+  <span class="footer-copy">Dhaka, Bangladesh</span>
+</footer>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+const ob = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('vis'),i*60);
+      ob.unobserve(e.target);
+    }
+  });
+},{threshold:0.08});
+els.forEach(el=>ob.observe(el));
+</script>
 </body>
 </html>
