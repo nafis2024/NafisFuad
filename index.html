@@ -6,8 +6,7 @@
 <title>Nafis Fuad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Epilogue:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
   :root{
@@ -22,7 +21,7 @@
   --border:#c8d3de;
   --serif: Georgia, "Times New Roman", serif; /* fallback similar to editorial serif */
   --sans:'Epilogue',sans-serif;
-  --monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --header: "Manrope", system-ui, sans-serif;
 }
 html{scroll-behavior:smooth;}
 body{
@@ -53,7 +52,9 @@ nav{
   font-weight:700;
 }
 .nav-center{
+  font-family:var(--header);
   font-size:11px;
+  font-weight: bold;
   letter-spacing:0.18em;
   text-transform:uppercase;
   color:var(--warm-text);
@@ -78,7 +79,7 @@ nav{
   border-right:1px solid var(--border);
 }
 .header-name{
-  font-family:var(--monospace);
+  font-family:var(--header);
   font-size:clamp(3rem,5.5vw,5.5rem);
   line-height:1.0;
   font-weight:700;
@@ -89,8 +90,9 @@ nav{
   color:var(--accent);
 }
 .header-sub{
+  font-family:var(--header);
   font-size:14px;
-  letter-spacing:0.2em;
+  letter-spacing:0.15em;
   text-transform:uppercase;
   color:var(--muted);
   margin-top:1.2rem;
@@ -161,10 +163,11 @@ nav{
 .grid-col{border-right:1px solid var(--border);}
 .grid-col:last-child{border-right:none;}
 .col-header{
+  font-family:var(--header);
   padding:1rem 1.5rem;
   border-bottom:1px solid var(--border);
-  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--muted);
+  font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--warm-mid);
   font-weight:400;
 }
 
@@ -243,7 +246,7 @@ nav{
   line-height:1;margin-bottom:0.75rem;font-weight: bold;
 }
 .award-title{font-size:12.5px;font-weight:500;line-height:1.5;margin-bottom:0.4rem;}
-.award-year{font-size:10px;color:var(--muted);letter-spacing:0.1em;}
+.award-year{font-size:13px;color:var(--muted);letter-spacing:0.1em;}
 
 /* ── CONTACT BLOCK ── */
 .contact-block{
@@ -257,7 +260,7 @@ nav{
   display:flex;flex-direction:column;justify-content:space-between;
 }
 .contact-heading{
-  font-family:var(--serif);
+  font-family:var(--header);
   font-size:clamp(1.8rem,3vw,2.8rem);
   line-height:1.15;
   font-weight:700;
@@ -336,7 +339,7 @@ footer{
   <div class="header-left">
     <div>
       <h1 class="header-name">Mohammad<br/><em>Nafis Fuad</em></h1>
-      <p class="header-sub">Web Developer &amp; Visual Designer · Beginner</p>
+      <p class="header-sub">Web Developer &amp; Visual Designer >> Beginner</p>
     </div>
     <p class="header-tagline">
       I build things for the web and lead the people who build alongside me. It's becoming more than a hobby now :)<br/><br/>
@@ -345,7 +348,7 @@ footer{
   </div>
   <div class="header-right">
     <div class="photo-placeholder">
-      <img src="/Profile Picture Portfolio.png" alt="Your photo" class="ph-frame">
+      <img src="/profile_picture.png" alt="My photo" class="ph-frame">
       <p>Me in High School </p>
     </div>
     <span class="header-location"></span>
@@ -381,7 +384,9 @@ footer{
     <div class="about-body">
       <p>I'm a 12th-grade student equally at home writing JavaScript and leading a team of twenty. I started coding out of curiosity — it grew into a full obsession with building things that matter.</p>
       <p>I founded Sandbox Scholars, competed in physics olympiads, volunteered at national tech festivals, and collaborated on the NASA Space Apps Challenge — all while learning front-end development from scratch.</p>
-      <p>Beyond code: photography, debating, research writing. Bangla (native), English (fluent), Hindi (conversational).</p>
+      <p><b>Beyond code: photography, designing, research writing.</b></p>
+      <p>Bangla (native)<br>English (fluent)<br>Hindi (conversational)</p>
+      
     </div>
   </div>
 
@@ -477,19 +482,20 @@ footer{
 <div class="awards-strip reveal">
   <div class="award-cell">
     <p class="award-n">01</p>
+    <p class="award-title">Finalist | Stockholm Junior Water Prize Bangladesh</p>
+    <p class="award-year">2026</p>
+  </div>
+  <div class="award-cell">
+    <p class="award-n">02</p>
     <p class="award-title">4th place — 15th Bangladesh Physics Olympiad (Regional)</p>
     <p class="award-year">2025</p>
   </div>
   <div class="award-cell">
-    <p class="award-n">02</p>
+    <p class="award-n">03</p>
     <p class="award-title">Galactic Problem Solver | NASA International Space Apps Challenge</p>
     <p class="award-year">2025</p>
   </div>
-  <div class="award-cell">
-    <p class="award-n">03</p>
-    <p class="award-title">Finalist | Stockholm Junior Water Prize Bangladesh</p>
-    <p class="award-year">2026</p>
-  </div>
+  
   <div class="award-cell">
     <p class="award-n">04</p>
     <p class="award-title">Semi-finalist | Intra-school Debating Competition</p>
