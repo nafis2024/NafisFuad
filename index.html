@@ -7,20 +7,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Epilogue:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --cream:#f5f0e8;
-  --cream2:#ede8df;
-  --warm-dark:#1c1814;
-  --warm-mid:#3d3530;
-  --warm-text:#2a2420;
-  --muted:#8c7f74;
-  --accent:#5c3d2e;
-  --accent-light:#c4a882;
-  --border:#d4ccc0;
-  --serif:'Playfair Display',Georgia,serif;
+  :root{
+  --cream:#eef3f7;
+  --cream2:#e3ebf2;
+  --warm-dark:#141a22;
+  --warm-mid:#2f3a46;
+  --warm-text:#222c36;
+  --muted:#7f8c98;
+  --accent:#3b5c7a;
+  --accent-light:#a9bfd3;
+  --border:#c8d3de;
+  --serif: Georgia, "Times New Roman", serif; /* fallback similar to editorial serif */
   --sans:'Epilogue',sans-serif;
+  --monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 html{scroll-behavior:smooth;}
 body{
@@ -39,9 +41,9 @@ nav{
   grid-template-columns:1fr auto 1fr;
   align-items:center;
   padding:1.25rem 2.5rem;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--cream);
   position:sticky;top:0;z-index:100;
-  background:rgba(245,240,232,0.92);
+  background:var(--border);
   backdrop-filter:blur(8px);
 }
 .nav-logo{
@@ -54,13 +56,13 @@ nav{
   font-size:11px;
   letter-spacing:0.18em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:var(--warm-text);
 }
 .nav-right{
   display:flex;gap:2rem;justify-content:flex-end;
   font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
 }
-.nav-right a{color:var(--muted);transition:color 0.18s;}
+.nav-right a{color:var(--accent);transition:color 0.18s;}
 .nav-right a:hover{color:var(--warm-dark);}
 
 /* ── HEADER BLOCK ── */
@@ -76,7 +78,7 @@ nav{
   border-right:1px solid var(--border);
 }
 .header-name{
-  font-family:var(--serif);
+  font-family:var(--monospace);
   font-size:clamp(3rem,5.5vw,5.5rem);
   line-height:1.0;
   font-weight:700;
@@ -87,7 +89,7 @@ nav{
   color:var(--accent);
 }
 .header-sub{
-  font-size:11px;
+  font-size:14px;
   letter-spacing:0.2em;
   text-transform:uppercase;
   color:var(--muted);
@@ -118,14 +120,14 @@ nav{
   color:var(--muted);
 }
 .photo-placeholder .ph-frame{
-  width:120px;height:150px;
+  width:230px;height:230px;
   border:1.5px dashed var(--border);
   display:flex;align-items:center;justify-content:center;
-  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  font-size:13px;letter-spacing:0.1em;text-transform:uppercase;
   color:var(--accent-light);
 }
 .photo-placeholder p{
-  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);
+  font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-light);
 }
 .header-location{
   position:absolute;bottom:1.5rem;right:1.5rem;
@@ -184,14 +186,15 @@ nav{
 .exp-num{
   padding:1.25rem 1rem;
   border-right:1px solid var(--border);
-  font-size:10px;letter-spacing:0.1em;color:var(--muted);
+  font-size:13px;letter-spacing:0.1em;color:var(--muted);
   font-family:'Playfair Display',serif;
   font-style:italic;
+  font-weight: bold;
 }
 .exp-content{padding:1.25rem 1.25rem;}
 .exp-role{font-size:13px;font-weight:600;margin-bottom:0.2rem;line-height:1.3;}
 .exp-org{
-  font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+  font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
   color:var(--accent);margin-bottom:0.4rem;
 }
 .exp-date{font-size:10px;color:var(--muted);margin-bottom:0.5rem;letter-spacing:0.05em;}
@@ -237,7 +240,7 @@ nav{
 .award-n{
   font-family:var(--serif);font-style:italic;
   font-size:2rem;color:var(--border);
-  line-height:1;margin-bottom:0.75rem;
+  line-height:1;margin-bottom:0.75rem;font-weight: bold;
 }
 .award-title{font-size:12.5px;font-weight:500;line-height:1.5;margin-bottom:0.4rem;}
 .award-year{font-size:10px;color:var(--muted);letter-spacing:0.1em;}
@@ -278,7 +281,7 @@ nav{
 .contact-link:hover{color:var(--accent);}
 .contact-link:hover .cl-arrow{transform:translate(3px,-3px);}
 .cl-platform{font-size:13px;font-weight:600;letter-spacing:0.04em;}
-.cl-handle{font-size:11px;color:var(--muted);margin-top:1px;}
+.cl-handle{font-size:13px;color:var(--muted);margin-top:1px;}
 .cl-arrow{
   font-size:14px;color:var(--muted);
   transition:transform 0.18s,color 0.18s;
@@ -291,7 +294,7 @@ footer{
   display:flex;align-items:center;justify-content:space-between;
   padding:1.25rem 2.5rem;
 }
-.footer-copy{font-size:11px;color:var(--muted);letter-spacing:0.08em;}
+.footer-copy{font-size:13px;color:var(--muted);letter-spacing:0.08em; font-weight: bold;}
 
 /* ── SCROLL REVEAL ── */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity 0.55s ease,transform 0.55s ease;}
@@ -319,8 +322,8 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">Nafis Fuad</span>
-  <span class="nav-center">Portfolio · 2025</span>
+  <span class="nav-logo"></span> 
+  <span class="nav-center"> Fuad's Portfolio</span>
   <div class="nav-right">
     <a href="#work">Work</a>
     <a href="#stack">Stack</a>
@@ -333,19 +336,19 @@ footer{
   <div class="header-left">
     <div>
       <h1 class="header-name">Mohammad<br/><em>Nafis Fuad</em></h1>
-      <p class="header-sub">Web Developer &amp; Visual Designer · Dhaka</p>
+      <p class="header-sub">Web Developer &amp; Visual Designer · Beginner</p>
     </div>
     <p class="header-tagline">
-      I build things for the web and lead the people who build alongside me.<br/><br/>
-      <strong>Aspiring software engineer</strong> — currently at Notre Dame College, shipping projects before graduation.
+      I build things for the web and lead the people who build alongside me. It's becoming more than a hobby now :)<br/><br/>
+      <strong>Aspiring software engineer</strong> — currently in 12th grade, learning front-end development and UI design from scratch. I founded an open-source digital newspaper for high-school audiences, volunteered at national tech festivals, and contributed to various open-source projects — all while teaching myself to code.
     </p>
   </div>
   <div class="header-right">
     <div class="photo-placeholder">
-      <div class="ph-frame">Your photo</div>
-      <p>Replace with img tag</p>
+      <img src="/Profile Picture Portfolio.png" alt="Your photo" class="ph-frame">
+      <p>Me in High School </p>
     </div>
-    <span class="header-location">Dhaka, Bangladesh</span>
+    <span class="header-location"></span>
   </div>
 </div>
 
@@ -353,7 +356,7 @@ footer{
 <div class="info-strip reveal">
   <div class="info-cell">
     <p class="info-cell-label">Currently</p>
-    <p class="info-cell-value">Notre Dame College · HSC Science</p>
+    <p class="info-cell-value">Notre Dame College · HSC · Science</p>
   </div>
   <div class="info-cell">
     <p class="info-cell-label">Founded</p>
@@ -361,10 +364,10 @@ footer{
   </div>
   <div class="info-cell">
     <p class="info-cell-label">Focus</p>
-    <p class="info-cell-value">Web Dev · UI Design · Leadership</p>
+    <p class="info-cell-value">Web Dev · UI Design · Mathematics</p>
   </div>
   <div class="info-cell">
-    <p class="info-cell-label">Graduating</p>
+    <p class="info-cell-label">Getting Into College</p>
     <p class="info-cell-value">2026 → Software Engineering</p>
   </div>
 </div>
@@ -479,18 +482,18 @@ footer{
   </div>
   <div class="award-cell">
     <p class="award-n">02</p>
-    <p class="award-title">Galactic Problem Solver · NASA International Space Apps Challenge</p>
+    <p class="award-title">Galactic Problem Solver | NASA International Space Apps Challenge</p>
     <p class="award-year">2025</p>
   </div>
   <div class="award-cell">
     <p class="award-n">03</p>
-    <p class="award-title">Runners-up · Intra-school Magazine Design Contest</p>
-    <p class="award-year">Milestone School</p>
+    <p class="award-title">Finalist | Stockholm Junior Water Prize Bangladesh</p>
+    <p class="award-year">2026</p>
   </div>
   <div class="award-cell">
     <p class="award-n">04</p>
-    <p class="award-title">Semi-finalist · Intra-school Debating Competition</p>
-    <p class="award-year">Milestone School</p>
+    <p class="award-title">Semi-finalist | Intra-school Debating Competition</p>
+    <p class="award-year">2023</p>
   </div>
 </div>
 
@@ -526,8 +529,8 @@ footer{
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-copy">© 2025 Mohammad Nafis Fuad</span>
-  <span class="footer-copy">Dhaka, Bangladesh</span>
+  <span class="footer-copy">Made with ❤️ by Mohammad Nafis Fuad</span>
+  <span class="footer-copy">Feel free to reach out!</span>
 </footer>
 
 <script>
