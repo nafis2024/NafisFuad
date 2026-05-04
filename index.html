@@ -15,10 +15,10 @@
   --warm-dark:#141a22;
   --warm-mid:#2f3a46;
   --warm-text:#222c36;
-  --muted:#7f8c98;
+  --muted:#6b7a88;
   --accent:#3b5c7a;
   --accent-light:#a9bfd3;
-  --border:#c8d3de;
+  --border:#bfcbd8;
   --serif: Georgia, "Times New Roman", serif; /* fallback similar to editorial serif */
   --sans:'Epilogue',sans-serif;
   --header: "Manrope", system-ui, sans-serif;
@@ -33,6 +33,11 @@ body{
 }
 a{color:inherit;text-decoration:none;}
 ::selection{background:var(--accent-light);color:var(--warm-dark);}
+
+/* ── UNIVERSAL HOVER ── */
+[class*="cell"]:hover{
+  background:var(--cream2);
+}
 
 /* ── NAV ── */
 nav{
@@ -103,7 +108,7 @@ nav{
   font-size:1rem;
   line-height:1.75;
   color:var(--warm-mid);
-  max-width:380px;
+  max-width:490px;
   margin-top:auto;
   padding-top:2rem;
 }
@@ -121,6 +126,7 @@ nav{
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   gap:1rem;
+  padding-top:8px;
   color:var(--muted);
 }
 @media (max-width: 600px){
@@ -165,7 +171,7 @@ nav{
 /* ── MAIN GRID ── */
 .main-grid{
   display:grid;
-  grid-template-columns:240px 1fr 1fr;
+  grid-template-columns:240px 5fr 3fr;
   border-bottom:1px solid var(--border);
 }
 .grid-col{border-right:1px solid var(--border);}
@@ -188,41 +194,41 @@ nav{
 .about-body p+p{margin-top:1rem;}
 
 /* EXPERIENCE / STACK COLS */
-.exp-row{
-  display:grid;grid-template-columns:90px 1fr;
+.exp-cell-row{
+  display:grid;grid-template-columns:73px 1fr;
   border-bottom:1px solid var(--border);
   min-height:0;
 }
-.exp-row:last-child{border-bottom:none;}
-.exp-num{
+.exp-cell-row:last-child{border-bottom:none;}
+.exp-cell-num{
   padding:1.25rem 1rem;
   border-right:1px solid var(--border);
-  font-size:13px;letter-spacing:0.1em;color:var(--muted);
+  font-size:13px;letter-spacing:0.1em;color:var(--warm-mid);
   font-family:'Playfair Display',serif;
   font-style:italic;
   font-weight: bold;
 }
-.exp-content{padding:1.25rem 1.25rem;}
-.exp-role{font-size:13px;font-weight:600;margin-bottom:0.2rem;line-height:1.3;}
-.exp-org{
+.exp-cell-content{padding:1.25rem 1.25rem;}
+.exp-cell-role{font-size:13px;font-weight:600;margin-bottom:0.2rem;line-height:1.3;}
+.exp-cell-org{
   font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
   color:var(--accent);margin-bottom:0.4rem;
 }
-.exp-date{font-size:10px;color:var(--muted);margin-bottom:0.5rem;letter-spacing:0.05em;}
-.exp-desc{font-size:12px;color:var(--muted);line-height:1.65;}
-.exp-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem;}
+.exp-cell-date{font-size:10px;color:var(--muted);margin-bottom:0.5rem;letter-spacing:0.05em;}
+.exp-cell-desc{font-size:13px;color:var(--muted);line-height:1.65;}
+.exp-cell-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem;}
 .tag{
   font-size:10px;letter-spacing:0.06em;padding:0.2rem 0.55rem;
   border:1px solid var(--border);color:var(--muted);
 }
 
 /* STACK COL */
-.stack-row{
+.stack-cell-row{
   display:flex;align-items:center;justify-content:space-between;
   padding:0.9rem 1.25rem;
   border-bottom:1px solid var(--border);
 }
-.stack-row:last-child{border-bottom:none;}
+.stack-cell-row:last-child{border-bottom:none;}
 .stack-name{font-size:13px;font-weight:500;}
 .stack-bar-wrap{display:flex;align-items:center;gap:0.6rem;}
 .bar{
@@ -412,40 +418,40 @@ footer{
   <div class="grid-col reveal">
     <div class="col-header">Experience</div>
 
-    <div class="exp-row">
-      <div class="exp-num">01</div>
-      <div class="exp-content">
-        <p class="exp-role">Founder &amp; Project Manager</p>
-        <p class="exp-org">Sandbox Scholars</p>
-        <p class="exp-date">Jul 2025 – Present</p>
-        <p class="exp-desc">Open-source digital newspaper for high-school audiences. Led 7+ research article projects, trained junior PMs, built web app &amp; task-automation tooling. Team of 20+.</p>
-        <div class="exp-tags">
+    <div class="exp-cell-row">
+      <div class="exp-cell-num">01</div>
+      <div class="exp-cell-content">
+        <p class="exp-cell-role">Founder &amp; Project Manager</p>
+        <p class="exp-cell-org">Sandbox Scholars</p>
+        <p class="exp-cell-date">Jul 2025 – Present</p>
+        <p class="exp-cell-desc">Open-source digital newspaper for high-school audiences. Led 7+ research article projects, trained junior PMs, built web app &amp; task-automation tooling. Team of 20+.</p>
+        <div class="exp-cell-tags">
           <span class="tag">React</span><span class="tag">UI Design</span><span class="tag">Leadership</span>
         </div>
       </div>
     </div>
 
-    <div class="exp-row">
-      <div class="exp-num">02</div>
-      <div class="exp-content">
-        <p class="exp-role">Math Tutor</p>
-        <p class="exp-org">Schoolhouse.world</p>
-        <p class="exp-date">Dec 2025 – Present</p>
-        <p class="exp-desc">Taught Algebra I, Algebra II, and Pre-Algebra using structured Khan Academy curriculum. Delivered 35+ sessions and 30+ tutoring hours, achieving top-tier performance metrics. Reached learners across 10 countries and supported 30+ students. Conducted peer reviews of tutoring sessions and evaluated certification requests.</p>
-        <div class="exp-tags">
+    <div class="exp-cell-row">
+      <div class="exp-cell-num">02</div>
+      <div class="exp-cell-content">
+        <p class="exp-cell-role">Math Tutor</p>
+        <p class="exp-cell-org">Schoolhouse.world</p>
+        <p class="exp-cell-date">Dec 2025 – Present</p>
+        <p class="exp-cell-desc">Taught Algebra I, Algebra II, and Pre-Algebra using structured Khan Academy curriculum. Delivered 35+ sessions and 30+ tutoring hours, achieving top-tier performance metrics. Reached learners across 10 countries and supported 30+ students. Conducted peer reviews of tutoring sessions and evaluated certification requests.</p>
+        <div class="exp-cell-tags">
           <span class="tag">Math</span><span class="tag">Peer Review</span><span class="tag">Presentation</span>
         </div>
       </div>
     </div>
 
-    <div class="exp-row">
-      <div class="exp-num">03</div>
-      <div class="exp-content">
-        <p class="exp-role">Organizer & Web Developer</p>
-        <p class="exp-org">Notre Dame IT Club · NDITC</p>
-        <p class="exp-date">May 2025 – Jun 2026</p>
-        <p class="exp-desc">INIT5.0 national inter-school tech festival. Contributed to official webpage, crafted plans for NASA Space Apps team, built Python certificate mailing script.</p>
-        <div class="exp-tags">
+    <div class="exp-cell-row">
+      <div class="exp-cell-num">03</div>
+      <div class="exp-cell-content">
+        <p class="exp-cell-role">Organizer & Web Developer</p>
+        <p class="exp-cell-org">Notre Dame IT Club · NDITC</p>
+        <p class="exp-cell-date">May 2025 – Jun 2026</p>
+        <p class="exp-cell-desc">INIT5.0 national inter-school tech festival. Contributed to official webpage, crafted plans for NASA Space Apps team, built Python certificate mailing script.</p>
+        <div class="exp-cell-tags">
           <span class="tag">Python</span><span class="tag">Web Dev</span><span class="tag">Events</span>
         </div>
       </div>
@@ -456,55 +462,56 @@ footer{
   <!-- STACK -->
   <div class="grid-col reveal" id="stack">
     <div class="col-header">Tech Stack</div>
-    <div class="stack-row">
+    <div class="stack-cell-row">
       <span class="stack-name">JavaScript</span>
       <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
         <span class="stack-lvl">Advanced</span>
       </div>
     </div>
-    <div class="stack-row">
+    <div class="stack-cell-row">
+      <span class="stack-name">Canva / Adobe</span>
+      <div class="stack-bar-wrap">
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Advanced</span>
+      </div>
+    </div>
+    <div class="stack-cell-row">
       <span class="stack-name">HTML &amp; CSS</span>
       <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
-        <span class="stack-lvl">Intermediate</span>
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Advanced</span>
       </div>
     </div>
-    <div class="stack-row">
+    <div class="stack-cell-row">
       <span class="stack-name">React JS</span>
       <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
         <span class="stack-lvl">Intermediate</span>
       </div>
     </div>
-    <div class="stack-row">
+    <div class="stack-cell-row">
       <span class="stack-name">TypeScript</span>
       <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
         <span class="stack-lvl">Learning</span>
       </div>
     </div>
-    <div class="stack-row">
+    <div class="stack-cell-row">
       <span class="stack-name">Tailwind CSS</span>
       <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
         <span class="stack-lvl">Learning</span>
       </div>
     </div>
-    <div class="stack-row">
+    <div class="stack-cell-row">
       <span class="stack-name">C++ / SQL</span>
       <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
         <span class="stack-lvl">Beginner</span>
       </div>
     </div>
-    <div class="stack-row">
-      <span class="stack-name">Canva / Adobe</span>
-      <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
-        <span class="stack-lvl">Intermediate</span>
-      </div>
-    </div>
+    
   </div>
 
 </div>
