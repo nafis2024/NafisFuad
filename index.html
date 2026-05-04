@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Nafis Fuad</title>
+<title>Fuad's Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
@@ -137,7 +137,7 @@ nav{
 }
 .photo-placeholder .ph-frame{
   width:230px;height:230px;
-  border:1.5px dashed var(--border);
+  border:2.4px dashed var(--border);
   display:flex;align-items:center;justify-content:center;
   font-size:13px;letter-spacing:0.1em;text-transform:uppercase;
   color:var(--accent-light);
@@ -174,15 +174,22 @@ nav{
   grid-template-columns:240px 5fr 3fr;
   border-bottom:1px solid var(--border);
 }
+@media (max-width: 900px){
+  .main-grid{
+    grid-template-columns:240px 4fr 3fr;
+  }
+}
+
 .grid-col{border-right:1px solid var(--border);}
 .grid-col:last-child{border-right:none;}
 .col-header{
   font-family:var(--header);
   padding:1rem 1.5rem;
+  border-top:1px solid var(--muted);
   border-bottom:1px solid var(--border);
-  font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
+  font-size:13px;letter-spacing:0.2em;text-transform:uppercase;
   color:var(--warm-mid);
-  font-weight:400;
+  font-weight:600;
 }
 
 /* ABOUT COL */
@@ -199,6 +206,12 @@ nav{
   border-bottom:1px solid var(--border);
   min-height:0;
 }
+@media (max-width: 900px){
+  .exp-cell-row{
+    grid-template-columns:55px 1fr;
+  }
+}
+
 .exp-cell-row:last-child{border-bottom:none;}
 .exp-cell-num{
   padding:1.25rem 1rem;
@@ -246,6 +259,7 @@ nav{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   border-bottom:1px solid var(--border);
+  border-top:1px solid var(--muted);
 }
 .award-cell{
   padding:1.5rem;
@@ -466,7 +480,7 @@ footer{
       <span class="stack-name">JavaScript</span>
       <div class="stack-bar-wrap">
         <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
-        <span class="stack-lvl">Advanced</span>
+        <span class="stack-lvl">Expert</span>
       </div>
     </div>
     <div class="stack-cell-row">
@@ -484,6 +498,13 @@ footer{
       </div>
     </div>
     <div class="stack-cell-row">
+      <span class="stack-name">Tailwind CSS</span>
+      <div class="stack-bar-wrap">
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
+        <span class="stack-lvl">Advanced</span>
+      </div>
+    </div>
+    <div class="stack-cell-row">
       <span class="stack-name">React JS</span>
       <div class="stack-bar-wrap">
         <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
@@ -493,21 +514,14 @@ footer{
     <div class="stack-cell-row">
       <span class="stack-name">TypeScript</span>
       <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
-        <span class="stack-lvl">Learning</span>
-      </div>
-    </div>
-    <div class="stack-cell-row">
-      <span class="stack-name">Tailwind CSS</span>
-      <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg filled"></span><span class="bar-seg"></span></div>
         <span class="stack-lvl">Learning</span>
       </div>
     </div>
     <div class="stack-cell-row">
       <span class="stack-name">C++ / SQL</span>
       <div class="stack-bar-wrap">
-        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
+        <div class="bar"><span class="bar-seg filled"></span><span class="bar-seg"></span><span class="bar-seg"></span></div>
         <span class="stack-lvl">Beginner</span>
       </div>
     </div>
