@@ -358,6 +358,8 @@ footer{
   .award-cell:nth-child(4){border-top:1px solid var(--border);border-right:none;}
 }
 
+/* NEW ADDITIONS -- PROJECTS AND WORK */
+
 .projects-section {
   border-bottom: 1px solid var(--border);
 }
@@ -437,6 +439,7 @@ footer{
   border-bottom: 1px solid var(--border);
   cursor: grab;
   user-select: none;
+  background: transparent;
 }
 .projects-scroll-wrap:active {
   cursor: grabbing;
@@ -456,7 +459,8 @@ footer{
   border: 1px solid var(--border);
 }
 
-/* ── DESIGN CARD ── */
+/* ── DESIGN CARD ── REMOVED */
+/*
 .design-card {
   width: 220px;
   height: 320px;
@@ -474,6 +478,7 @@ footer{
 }
 
 .design-card-bg {
+  pointer-events: none;
   position: absolute;
   inset: 0;
   background-size: cover;
@@ -483,11 +488,10 @@ footer{
 }
 
 .design-card:hover .design-card-bg {
-  transform: scale(1.04);
+  
   filter: brightness(0.8) saturate(1);
 }
 
-/* Colored placeholder when no image is set */
 .design-card-bg.placeholder-1 { background-color: #dce8f0; }
 .design-card-bg.placeholder-2 { background-color: #e0ddf0; }
 .design-card-bg.placeholder-3 { background-color: #f0e8dc; }
@@ -499,6 +503,7 @@ footer{
   inset: 0;
   background: linear-gradient(to top, rgba(20,26,34,0.85) 0%, rgba(20,26,34,0.1) 55%, transparent 100%);
   transition: opacity 0.3s;
+  pointer-events: none;
 }
 
 .design-card-body {
@@ -557,6 +562,7 @@ footer{
   background: rgba(255,255,255,0.22);
   color: #fff;
 }
+*/
 
 /* ── GITHUB CARD ── */
 .github-card {
@@ -686,6 +692,7 @@ footer{
       I build things for the web and lead the people who build alongside me. It's becoming more than a hobby now :)<br/><br/>
       <strong>Aspiring software engineer</strong> — currently in 12th grade, learning front-end development and UI design from scratch. I founded an open-source digital newspaper for high-school audiences, volunteered at national tech festivals, and contributed to various open-source projects — all while teaching myself to code.
     </p>
+    <a href="resume.pdf" target="_blank" class="resume-link">View Resume (PDF)</a>
   </div>
   <div class="header-right">
     <div class="photo-placeholder">
@@ -868,22 +875,15 @@ footer{
     
   </div>
 
-  <!-- ── ROW 1: DESIGNS ── -->
+  <!-- ── ROW 1: DESIGNS ── REMOVED -->
   
+<!--
 
   <div class="projects-scroll-wrap" id="designScroll">
     <div class="projects-track">
 
-      <!--
-        DESIGN CARD TEMPLATE:
-        - Set href to your Google Drive link
-        - Set background-image in style="background-image:url('your-preview.jpg')"
-          OR remove it to keep the placeholder color
-        - Change placeholder-N (1–5) for different placeholder tints
-      -->
-
       <a class="design-card" href="https://drive.google.com/your-link-1" target="_blank">
-        <div class="design-card-bg placeholder-1" style="background-image:url('formal_photo.png')"></div>
+        <div class="design-card-bg placeholder-1" style="background-image:url('/images/tdsMobile2.png')"></div>
         <div class="design-card-overlay"></div>
         <div class="design-card-body">
           <p class="design-card-type">UI Design</p>
@@ -932,10 +932,11 @@ footer{
         </div>
       </a>
 
-      <!-- Add more design cards here by duplicating the block above -->
+    
 
     </div>
-  </div>
+  </div>  
+-->
 
   <!-- ── ROW 2: GITHUB REPOS ── -->
   
