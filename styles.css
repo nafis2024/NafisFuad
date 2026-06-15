@@ -921,216 +921,367 @@ footer {
 .projects-scroll-wrap.is-dragging button {
   pointer-events: none;
 }
-
 /* ── SECTION WRAPPER ── */
-.works-section{
-  border-top:1px solid var(--muted);
-  border-bottom:1px solid var(--border);
+    .works-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+    }
+
+    /* ── SECTION HEADER ── */
+    .works-header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 1rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      gap: 1.5rem;
+      background: var(--cream);
+    }
+    .works-header-left {
+      font-family: var(--header);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+    }
+    .works-header-rule {
+      height: 1px;
+      background: var(--border);
+    }
+    .works-header-right {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ── INTRO STRIP ── */
+    .works-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+    }
+    .works-intro-left {
+      padding: 1.75rem 2.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .works-intro-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      color: var(--warm-dark);
+      line-height: 1.2;
+    }
+    .works-intro-title em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .works-intro-right {
+      padding: 1.75rem 2.5rem;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
+    }
+    .drag-hint {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── CANVAS FIXES: iPad + scrambled layout (non-overlapping, static) ── */
+    .works-canvas-wrap {
+      position: relative;
+      height: 640px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      /* fix for iPad: ensure scrollable area if tiles exceed width */
+      overflow-x: auto;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      
+    }
+
+    /* Canvas container becomes relative anchor for absolute tiles */
+    .works-canvas {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      /* min-width ensures tiles never overlap or get squished (scrambled but no overlapping) */
+      min-width: 1260px;
+      background: var(--cream);
+    }
+
+    /* ── PROJECT TILE (static, no drag, no overlapping) ── */
+    .work-tile {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      background: var(--cream2);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.22s, transform 0.22s;
+      overflow: hidden;
+      will-change: transform;
+      /* iPad tap highlight remove */
+      -webkit-tap-highlight-color: transparent;
+    }
+    .work-tile:hover {
+      box-shadow: 0 8px 32px rgba(20, 26, 34, 0.10);
+      transform: translateY(-3px);
+    }
+
+    /* image area */
+    .work-tile-img {
+      width: 100%;
+      flex-shrink: 0;
+      background: var(--cream2);
+      overflow: hidden;
+      position: relative;
+    }
+    .work-tile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .work-tile:hover .work-tile-img img {
+      transform: scale(1.04);
+    }
+
+    .work-tile-img-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(59, 92, 122, 0.35);
+      background: var(--accent-light);
+    }
+
+    /* arrow badge (optional, not breaking) */
+    .work-tile-arrow {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 28px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--accent);
+      transition: background 0.18s;
+      backdrop-filter: blur(4px);
+    }
+    .work-tile:hover .work-tile-arrow {
+      background: #fff;
+    }
+
+    /* body */
+    .work-tile-body {
+      padding: 1rem 1.1rem 1.1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+    .work-tile-type {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .work-tile-title {
+      font-family: var(--header);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--warm-dark);
+      line-height: 1.25;
+      margin-bottom: 0.3rem;
+    }
+   
+    .work-tile-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+    }
+    .work-tile-tags {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+    .work-tile-tag {
+      font-size: 9px;
+      letter-spacing: 0.07em;
+      padding: 0.18rem 0.45rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .work-tile-year {
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    /* ── TILE SIZES & POSITIONS (scrambled, non-overlapping) ── */
+    /* Option 2: The "Dynamic Studio" (Playful & Energetic) */
+.works-canvas {
+    min-width: 1320px;
 }
 
-/* ── SECTION HEADER ── */
-.works-header{
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  padding:1rem 2.5rem;
-  border-bottom:1px solid var(--border);
-  gap:1.5rem;
-}
-.works-header-left{
-  font-family:var(--header);
-  font-size:13px;font-weight:600;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--warm-mid);
-}
-.works-header-rule{height:1px;background:var(--border);}
-.works-header-right{
-  font-size:11px;letter-spacing:0.12em;
-  text-transform:uppercase;color:var(--muted);
-  text-align:right;white-space:nowrap;
-}
+/* ── ORGANIC, SCRAMBLED PLACEMENT (whiteboard style) ── */
 
-/* ── INTRO STRIP ── */
-.works-intro{
-  display:grid;grid-template-columns:1fr 1fr;
-  border-bottom:1px solid var(--border);
+#t1 {
+  width: 320px;
+  top: 45px;
+  left: 35px;
 }
-.works-intro-left{
-  padding:1.75rem 2.5rem;
-  border-right:1px solid var(--border);
-}
-.works-intro-title{
-  font-family:var(--serif);font-style:italic;
-  font-size:clamp(1.3rem,2vw,1.8rem);
-  color:var(--warm-dark);line-height:1.2;
-}
-.works-intro-title em{font-style:normal;color:var(--accent);}
-.works-intro-right{
-  padding:1.75rem 2.5rem;
-  font-size:13px;color:var(--muted);line-height:1.7;
-  display:flex;align-items:center;
-}
-.drag-hint{
-  font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--accent-light);display:flex;align-items:center;gap:0.5rem;
-}
+#t1 .work-tile-img { height: 280px; }
 
-/* ── CANVAS ── */
-.works-canvas-wrap{
-  overflow:hidden;
-  position:relative;
-  height:620px;
-  background:var(--cream);
-  border-bottom:1px solid var(--border);
+#t2 {
+  width: 480px;
+  top: 70px;
+  left: 390px;
 }
+#t2 .work-tile-img { height: 210px; }
 
-/* ── PROJECT TILE ── */
-.work-tile{
-  position:absolute;
-  display:flex;flex-direction:column;
-  background:var(--cream2);
-  border:1px solid var(--border);
-  text-decoration:none;color:inherit;
-  transition:box-shadow 0.22s, transform 0.22s;
-  overflow:hidden;
+#t3 {
+  width: 240px;
+  top: 320px;
+  left: 380px;
 }
-.work-tile:hover{
-  box-shadow:0 8px 32px rgba(20,26,34,0.10);
-  transform:translateY(-3px);
-}
+#t3 .work-tile-img { height: 170px; }
 
-/* image area */
-.work-tile-img{
-  width:100%;
-  flex-shrink:0;
-  background:var(--cream2);
-  overflow:hidden;
-  position:relative;
+#t4 {
+  width: 280px;
+  top: 25px;
+  left: 920px;
 }
-.work-tile-img img{
-  width:100%;height:100%;object-fit:cover;
-  display:block;
-  transition:transform 0.4s ease;
+#t4 .work-tile-img { height: 250px; }
+
+#t5 {
+  width: 420px;
+  top: 290px;
+  left: 680px;
 }
-.work-tile:hover .work-tile-img img{transform:scale(1.04);}
+#t5 .work-tile-img { height: 170px; }
 
 
-
-.work-tile-img-ph{
-  width:100%;height:100%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
-  color:rgba(59,92,122,0.35);
-}
-
-/* arrow badge */
-.work-tile-arrow{
-  position:absolute;top:0.75rem;right:0.75rem;
-  width:28px;height:28px;
-  background:rgba(255,255,255,0.75);
-  border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;color:var(--accent);
-  transition:background 0.18s;
-  backdrop-filter:blur(4px);
-}
-.work-tile:hover .work-tile-arrow{background:#fff;}
-
-/* body */
-.work-tile-body{
-  padding:1rem 1.1rem 1.1rem;
-  flex:1;display:flex;flex-direction:column;justify-content:space-between;
-  border-top:1px solid var(--border);
-}
-.work-tile-type{
-  font-size:9px;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:0.3rem;
-}
-.work-tile-title{
-  font-family:var(--header);font-size:14px;font-weight:700;
-  color:var(--warm-dark);line-height:1.25;margin-bottom:0.3rem;
-}
-.work-tile-desc{
-  font-size:11.5px;color:var(--muted);line-height:1.55;
-  display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-}
-.work-tile-footer{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-top:0.75rem;
-}
-.work-tile-tags{display:flex;gap:0.3rem;flex-wrap:wrap;}
-.work-tile-tag{
-  font-size:9px;letter-spacing:0.07em;
-  padding:0.18rem 0.45rem;
-  border:1px solid var(--border);color:var(--muted);
-}
-.work-tile-year{
-  font-size:14px;color:var(--accent);
-  letter-spacing:0.06em;white-space:nowrap;
-}
-
-/* ── TILE SIZES & POSITIONS ── */
-/* T1 — hero portrait, tall */
-#t1{
-  width:300px;
-  top:60px;left:60px;
-}
-#t1 .work-tile-img{height:280px;}
-
-/* T2 — landscape wide */
-#t2{
-  width:440px;
-  top:40px;left:400px;
-}
-#t2 .work-tile-img{height:220px;}
-
-/* T3 — small square */
-#t3{
-  width:220px;
-  top:310px;left:400px;
-}
-#t3 .work-tile-img{height:160px;}
-
-/* T4 — medium portrait */
-#t4{
-  width:260px;
-  top:100px;left:880px;
-}
-#t4 .work-tile-img{height:240px;}
-
-/* T5 — wide landscape, lower */
-#t5{
-  width:400px;
-  top:340px;left:660px;
-}
-#t5 .work-tile-img{height:160px;}
-
-/* ── FOOTER STRIP ── */
-.works-footer{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0.9rem 2.5rem;
-}
-.works-footer-left{
-  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
-}
-.works-footer-right{
-  font-family:var(--serif);font-style:italic;
-  font-size:0.85rem;color:var(--accent-light);
-}
-
-/* ── MOBILE ── */
-@media(max-width:720px){
-  .works-intro{grid-template-columns:1fr;}
-  .works-intro-left{border-right:none;border-bottom:1px solid var(--border);}
-  .works-header{grid-template-columns:1fr auto;}
-  .works-header-rule{display:none;}
-  /* on mobile stack tiles vertically, no canvas */
-  .works-canvas-wrap{
-    height:auto;overflow:visible;cursor:default;
-    padding:1.5rem;background:var(--cream);
-    display:flex;flex-direction:column;gap:1rem;
+    /* ── MOBILE (≤720px) : stacked vertical, no canvas issues ── */
+    @media (max-width: 720px) {
+  .works-intro {
+    grid-template-columns: 1fr;
   }
-  .works-canvas{position:static;width:100%;height:auto;display:flex;flex-direction:column;gap:1rem;}
-  .work-tile{position:static !important;width:100% !important;}
-  .work-tile-img{height:200px !important;}
+  .works-intro-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .works-header {
+    grid-template-columns: 1fr auto;
+  }
+  .works-header-rule {
+    display: none;
+  }
+
+  /* mobile stacked layout */
+  .works-canvas-wrap {
+    height: auto;
+    overflow: visible;
+    padding: 1.5rem;
+    background: var(--cream);
+  }
+  .works-canvas {
+    position: static !important;
+    width: 100%;
+    height: auto;
+    min-width: auto !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .work-tile {
+    position: static !important;
+    width: 100% !important;
+    margin: 0;
+    top: auto !important;
+    left: auto !important;
+  }
+
+  /* ── MINIMAL FRAME FOR IMAGES (no rectangle takeover) ── */
+  .work-tile-img {
+    height: auto !important;           /* remove fixed height */
+    background: transparent;
+    padding: 6px 6px 4px 6px;         /* thin frame spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .work-tile-img img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 160px;                /* keeps image small and framed */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    background: #fff;
+  }
+
+  /* if you still have text placeholders (no img), style them similarly */
+  .work-tile-img-ph {
+    min-height: 100px;
+    padding: 1rem;
+    background: #f9f4ea;
+    border: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+  }
 }
+
+    /* iPad & tablet adjustments (portrait & landscape: ensure no accidental overlaps and canvas scroll works) */
+    @media (min-width: 721px) and (max-width: 1024px) {
+      .works-canvas {
+        min-width: 1280px; /* keeps tile positions from overlapping on iPad */
+      }
+      .works-canvas-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    /* additional small fix: remove any remnants of dragging (user doesn't want drag) */
+    .work-tile {
+      user-select: text;
+      -webkit-user-select: text;
+      cursor: pointer;
+    }
+    .works-canvas-wrap,
+    .works-canvas {
+      user-select: auto;
+    }
