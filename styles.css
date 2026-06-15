@@ -13,6 +13,11 @@
   --sans:'Epilogue',sans-serif;
   --header: "Manrope", system-ui, sans-serif;
 }
+
+body, html {
+  cursor: url('/images/cursor1.svg') 0 0, auto;
+}
+
 html{scroll-behavior:smooth;}
 body{
   background:var(--cream);
@@ -30,36 +35,136 @@ a{color:inherit;text-decoration:none;}
 }
 
 /* ── NAV ── */
-nav{
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  padding:1.25rem 2.5rem;
-  border-bottom:1px solid var(--cream);
-  position:sticky;top:0;z-index:100;
-  background:var(--border);
-  backdrop-filter:blur(8px);
+nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1.25rem 2.5rem;
+  border-bottom: 1px solid var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--border);
+  backdrop-filter: blur(8px);
 }
-.nav-logo{
-  font-family:var(--serif);
-  font-size:1.1rem;
-  letter-spacing:0.02em;
-  font-weight:700;
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
 }
-.nav-center{
-  font-family:var(--header);
-  font-size:11px;
+
+.nav-center {
+  font-family: var(--header);
+  font-size: 11px;
   font-weight: bold;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--warm-text);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-text);
 }
-.nav-right{
-  display:flex;gap:2rem;justify-content:flex-end;
-  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+
+.nav-right {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
-.nav-right a{color:var(--accent);transition:color 0.18s;}
-.nav-right a:hover{color:var(--warm-dark);}
+
+.nav-right a {
+  color: var(--accent);
+  transition: color 0.18s;
+}
+
+.nav-right a:hover {
+  color: var(--warm-dark);
+}
+
+/* Hamburger button - hidden on desktop */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  z-index: 200;
+}
+
+.hamburger svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--border);
+  backdrop-filter: blur(16px);
+  z-index: 150;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mobile-menu a {
+  font-family: var(--header);
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.mobile-menu a:hover {
+  color: var(--warm-dark);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  nav {
+    grid-template-columns: auto 1fr auto;
+    padding: 1rem 1.5rem;
+  }
+  
+  .nav-center {
+    justify-self: center;
+  }
+  
+  .nav-right {
+    display: none;  /* Hide desktop nav */
+  }
+  
+  .hamburger {
+    display: block;  /* Show hamburger */
+    justify-self: end;
+  }
+  
+  .mobile-menu.show {
+    display: flex;
+  }
+}
+
+/* Tablet landscape - show full nav earlier if space allows */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+  
+  .mobile-menu {
+    display: none !important;
+  }
+}
 
 /* ── HEADER BLOCK ── */
 .header-block{
@@ -73,29 +178,31 @@ nav{
   display:flex;flex-direction:column;justify-content:space-between;
   border-right:1px solid var(--border);
 }
-.header-name{
+.header-name {
   font-family:var(--header);
-  font-size:clamp(2.7rem,5.3vw,5.3rem);
-  line-height:1.0;
-  font-weight:650;
-  letter-spacing:-0.02em;
+  font-size: clamp(2.8rem, 9vw, 5.3rem); /* smaller min, keeps original max */
+  line-height: 1.1;
+  font-weight: 650;
+  letter-spacing: -0.02em;
 }
+
+.header-sub {
+  font-family:var(--header);
+  font-size: clamp(0.75rem, 2.5vw, 1rem); /* smaller on mobile, grows to 16px max */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.6rem;
+  font-weight: 500;
+}
+
 .header-name em{
   font-family:var(--sans);
   font-style:normal;
   font-weight:500;
   color:var(--accent);
 }
-.header-sub{
-  font-family:var(--header);
-  font-size:19px;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-top:1.2rem;
-  font-weight:500;
 
-}
 .header-tagline{
   font-size:1rem;
   line-height:1.75;
@@ -154,24 +261,67 @@ nav{
   gap: 1.5rem;
   text-align: center;
 }
+
 .cta-top {
   font-family: var(--header);
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--warm-dark);
+  color: var(--warm-text);
   text-transform: uppercase;
+  display: flex;
+  flex-direction: column;  /* This already gives you rows on mobile */
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;        /* Allows wrapping on mobile */
+  justify-content: center;
+  align-items: baseline;  /* Aligns text and icons nicely */
+  gap: 0.75rem 1.5rem;    /* Row gap, column gap */
 }
+
+/* Each "word + icon" group */
+.cta-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;    /* Prevents breaking inside Build/icon */
+}
+
+/* The icons themselves */
+.cta-top svg {
+  width: 1.2em;           /* Scales with font size */
+  height: 1.2em;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* The italic tagline */
 .cta-top em {
   font-style: italic;
   font-family: var(--serif);
   font-weight: 400;
   text-transform: none;
   color: var(--accent);
-  display: block;
+  display: inline-block;   /* Changed from block */
   font-size: 0.72em;
-  margin-top: 0.2rem;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+/* On very small screens, allow wrap */
+@media (max-width: 480px) {
+  .cta-top {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+  }
+  .cta-top em {
+    white-space: normal;
+    margin-left: 0;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
 }
 .ph-wrap {
   flex-shrink: 0;
@@ -771,3 +921,367 @@ footer {
 .projects-scroll-wrap.is-dragging button {
   pointer-events: none;
 }
+/* ── SECTION WRAPPER ── */
+    .works-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+    }
+
+    /* ── SECTION HEADER ── */
+    .works-header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 1rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      gap: 1.5rem;
+      background: var(--cream);
+    }
+    .works-header-left {
+      font-family: var(--header);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+    }
+    .works-header-rule {
+      height: 1px;
+      background: var(--border);
+    }
+    .works-header-right {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ── INTRO STRIP ── */
+    .works-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+    }
+    .works-intro-left {
+      padding: 1.75rem 2.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .works-intro-title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      color: var(--warm-dark);
+      line-height: 1.2;
+    }
+    .works-intro-title em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .works-intro-right {
+      padding: 1.75rem 2.5rem;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
+    }
+    .drag-hint {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── CANVAS FIXES: iPad + scrambled layout (non-overlapping, static) ── */
+    .works-canvas-wrap {
+      position: relative;
+      height: 640px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      /* fix for iPad: ensure scrollable area if tiles exceed width */
+      overflow-x: auto;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      
+    }
+
+    /* Canvas container becomes relative anchor for absolute tiles */
+    .works-canvas {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      /* min-width ensures tiles never overlap or get squished (scrambled but no overlapping) */
+      min-width: 1260px;
+      background: var(--cream);
+    }
+
+    /* ── PROJECT TILE (static, no drag, no overlapping) ── */
+    .work-tile {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      background: var(--cream2);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.22s, transform 0.22s;
+      overflow: hidden;
+      will-change: transform;
+      /* iPad tap highlight remove */
+      -webkit-tap-highlight-color: transparent;
+    }
+    .work-tile:hover {
+      box-shadow: 0 8px 32px rgba(20, 26, 34, 0.10);
+      transform: translateY(-3px);
+    }
+
+    /* image area */
+    .work-tile-img {
+      width: 100%;
+      flex-shrink: 0;
+      background: var(--cream2);
+      overflow: hidden;
+      position: relative;
+    }
+    .work-tile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .work-tile:hover .work-tile-img img {
+      transform: scale(1.04);
+    }
+
+    .work-tile-img-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(59, 92, 122, 0.35);
+      background: var(--accent-light);
+    }
+
+    /* arrow badge (optional, not breaking) */
+    .work-tile-arrow {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 28px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--accent);
+      transition: background 0.18s;
+      backdrop-filter: blur(4px);
+    }
+    .work-tile:hover .work-tile-arrow {
+      background: #fff;
+    }
+
+    /* body */
+    .work-tile-body {
+      padding: 1rem 1.1rem 1.1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+    .work-tile-type {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .work-tile-title {
+      font-family: var(--header);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--warm-dark);
+      line-height: 1.25;
+      margin-bottom: 0.3rem;
+    }
+   
+    .work-tile-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+    }
+    .work-tile-tags {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+    .work-tile-tag {
+      font-size: 9px;
+      letter-spacing: 0.07em;
+      padding: 0.18rem 0.45rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .work-tile-year {
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    /* ── TILE SIZES & POSITIONS (scrambled, non-overlapping) ── */
+    /* Option 2: The "Dynamic Studio" (Playful & Energetic) */
+.works-canvas {
+    min-width: 1320px;
+}
+
+/* ── ORGANIC, SCRAMBLED PLACEMENT (whiteboard style) ── */
+
+#t1 {
+  width: 320px;
+  top: 45px;
+  left: 35px;
+}
+#t1 .work-tile-img { height: 280px; }
+
+#t2 {
+  width: 480px;
+  top: 70px;
+  left: 390px;
+}
+#t2 .work-tile-img { height: 210px; }
+
+#t3 {
+  width: 240px;
+  top: 320px;
+  left: 380px;
+}
+#t3 .work-tile-img { height: 170px; }
+
+#t4 {
+  width: 280px;
+  top: 25px;
+  left: 920px;
+}
+#t4 .work-tile-img { height: 250px; }
+
+#t5 {
+  width: 420px;
+  top: 290px;
+  left: 680px;
+}
+#t5 .work-tile-img { height: 170px; }
+
+
+    /* ── MOBILE (≤720px) : stacked vertical, no canvas issues ── */
+    @media (max-width: 720px) {
+  .works-intro {
+    grid-template-columns: 1fr;
+  }
+  .works-intro-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .works-header {
+    grid-template-columns: 1fr auto;
+  }
+  .works-header-rule {
+    display: none;
+  }
+
+  /* mobile stacked layout */
+  .works-canvas-wrap {
+    height: auto;
+    overflow: visible;
+    padding: 1.5rem;
+    background: var(--cream);
+  }
+  .works-canvas {
+    position: static !important;
+    width: 100%;
+    height: auto;
+    min-width: auto !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .work-tile {
+    position: static !important;
+    width: 100% !important;
+    margin: 0;
+    top: auto !important;
+    left: auto !important;
+  }
+
+  /* ── MINIMAL FRAME FOR IMAGES (no rectangle takeover) ── */
+  .work-tile-img {
+    height: auto !important;           /* remove fixed height */
+    background: transparent;
+    padding: 6px 6px 4px 6px;         /* thin frame spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .work-tile-img img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 160px;                /* keeps image small and framed */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    background: #fff;
+  }
+
+  /* if you still have text placeholders (no img), style them similarly */
+  .work-tile-img-ph {
+    min-height: 100px;
+    padding: 1rem;
+    background: #f9f4ea;
+    border: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+  }
+}
+
+    /* iPad & tablet adjustments (portrait & landscape: ensure no accidental overlaps and canvas scroll works) */
+    @media (min-width: 721px) and (max-width: 1024px) {
+      .works-canvas {
+        min-width: 1280px; /* keeps tile positions from overlapping on iPad */
+      }
+      .works-canvas-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    /* additional small fix: remove any remnants of dragging (user doesn't want drag) */
+    .work-tile {
+      user-select: text;
+      -webkit-user-select: text;
+      cursor: pointer;
+    }
+    .works-canvas-wrap,
+    .works-canvas {
+      user-select: auto;
+    }
