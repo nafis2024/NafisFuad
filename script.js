@@ -94,3 +94,19 @@ document.querySelectorAll('.github-card-num,.exp-cell-num,.award-n').forEach((el
       link.href = `https://wa.me/${text.substring(1)}`;
     }
   });
+
+  // SCRIPT 05
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('show');
+});
+
+// Close menu when clicking a link
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('show');
+  });
+});
